@@ -22,5 +22,15 @@ public class TollStation {
     public double getTotalCollected() {
         return totalCollected;
     }
+    public double calculateToll(Vehicle vehicle) {
+        switch (vehicle.getType()) {
+            case CAR:
+                return 100;
+            case MOTORCYCLE:
+                return 50;
+            default:
+                return 0;
+        }
+    }
 
 }
