@@ -19,6 +19,12 @@ public void testCalculateCarToll() {
     double toll = tollStation.calculateToll(car);
     assertThat(toll, is(100.0));
 }
+@Test
+public void testCalculateMotorcycleToll() {
+    Vehicle motorcycle = new Vehicle("XYZ789", VehicleType.MOTORCYCLE);
+    double toll = tollStation.calculateToll(motorcycle);
+    assertThat(toll, is(50.0));
+}
 
     }
 
