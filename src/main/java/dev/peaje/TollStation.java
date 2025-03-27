@@ -28,6 +28,8 @@ public class TollStation {
                 return 100;
             case MOTORCYCLE:
                 return 50;
+            case TRUCK:
+                return 50 * vehicle.getAxles();
             default:
                 return 0;
         }
