@@ -1,14 +1,24 @@
 package dev.peaje;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TollStation {
     private final String name;
     private final String city;
     private double totalCollected;
+    private List<Vehicle> processedVehicles;
 
     public TollStation(String name, String city) {
         this.name = name;
         this.city = city;
         this.totalCollected = 0;
+        this.processedVehicles = new ArrayList<>(); 
+    }
+     public void processVehicle(Vehicle vehicle) {
+        double toll = calculateToll(vehicle);
+        totalCollected += toll;
+        processedVehicles.add(vehicle);
     }
 
     public String getName() {
