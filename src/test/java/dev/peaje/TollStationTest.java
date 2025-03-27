@@ -41,6 +41,17 @@ public void testProcessVehicle() {
     tollStation.processVehicle(motorcycle);
     assertThat(tollStation.getTotalCollected(), is(150.0));
 }
+@Test
+public void testGetProcessedVehicles() {
+    Vehicle car = new Vehicle("ABC123", VehicleType.CAR);
+    Vehicle truck = new Vehicle("TRK456", VehicleType.TRUCK, 3);
+    
+    tollStation.processVehicle(car);
+    tollStation.processVehicle(truck);
+    
+    assertThat(tollStation.getProcessedVehicles().size(), is(2));
+    assertThat(tollStation.getProcessedVehicles(), hasItems(car, truck));
+}
 
     }
 
