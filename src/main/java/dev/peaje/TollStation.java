@@ -23,6 +23,21 @@ public class TollStation {
     public List<Vehicle> getProcessedVehicles() {
         return new ArrayList<>(processedVehicles);
     }
+    public String generateReport() {
+        StringBuilder report = new StringBuilder();
+        report.append("Toll Station: ").append(name).append(" - ").append(city).append("\n");
+        report.append("Processed Vehicles:\n");
+        
+        for (Vehicle vehicle : processedVehicles) {
+            double toll = calculateToll(vehicle);
+            report.append(vehicle.getLicensePlate())
+                  .append(" (").append(vehicle.getType()).append("): $")
+                  .append(toll).append("\n");
+        }
+        
+        report.append("Total collected: $").append(totalCollected).append("\n");
+        return report.toString();
+    }
 
     public String getName() {
         return name;
