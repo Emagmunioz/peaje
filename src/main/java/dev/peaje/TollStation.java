@@ -20,6 +20,9 @@ public class TollStation {
         totalCollected += toll;
         processedVehicles.add(vehicle);
     }
+    public List<Vehicle> getProcessedVehicles() {
+        return new ArrayList<>(processedVehicles);
+    }
 
     public String getName() {
         return name;
