@@ -11,5 +11,12 @@ public class VehicleTest {
         assertThat(car.getLicensePlate(), is("ABC123"));
         assertThat(car.getType(), is(VehicleType.CAR));
     }
+    @Test
+public void testTruckCreationWithAxles() {
+    Vehicle truck = new Vehicle("TRK456", VehicleType.TRUCK, 3);
+    assertThat(truck.getLicensePlate(), is("TRK456"));
+    assertThat(truck.getType(), is(VehicleType.TRUCK));
+    assertThat(truck.getAxles(), is(3));
+}
 
 }
