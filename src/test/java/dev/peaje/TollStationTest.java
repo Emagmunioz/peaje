@@ -52,6 +52,24 @@ public void testGetProcessedVehicles() {
     assertThat(tollStation.getProcessedVehicles().size(), is(2));
     assertThat(tollStation.getProcessedVehicles(), hasItems(car, truck));
 }
+@Test
+public void testGenerateReport() {
+    Vehicle car = new Vehicle("ABC123", VehicleType.CAR);
+    Vehicle motorcycle = new Vehicle("XYZ789", VehicleType.MOTORCYCLE);
+    Vehicle truck = new Vehicle("TRK456", VehicleType.TRUCK, 3);
+    
+    tollStation.processVehicle(car);
+    tollStation.processVehicle(motorcycle);
+    tollStation.processVehicle(truck);
+    
+    String report = tollStation.generateReport();
+    
+    assertThat(report, containsString("Toll Station: North Station - Medellin"));
+    assertThat(report, containsString("ABC123 (CAR): $100.0"));
+    assertThat(report, containsString("XYZ789 (MOTORCYCLE): $50.0"));
+    assertThat(report, containsString("TRK456 (TRUCK): $150.0"));
+    assertThat(report, containsString("Total collected: $300.0"));
+}
 
     }
 
