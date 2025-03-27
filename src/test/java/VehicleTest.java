@@ -1,6 +1,8 @@
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import dev.peaje.Vehicle;
+import dev.peaje.VehicleType;
 
 public class VehicleTest {
     @Test
